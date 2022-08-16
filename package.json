@@ -1,10 +1,8 @@
 {
-  "name": "contract-ext-module",
+  "name": "vouch-verified",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
-  "repository": "https://github.com/twilson63/contract-ext-module.git",
-  "author": "Tom Wilson <tom@hyper.io>",
+  "main": "verified.js",
   "license": "MIT",
   "devDependencies": {
     "arlocal": "^1.1.55",
@@ -12,9 +10,5 @@
     "esbuild": "^0.15.1",
     "replace-in-file": "^6.3.5",
     "uvu": "^0.5.6"
-  },
-  "dependencies": {
-    "redstone-smartweave": "^0.5.11",
-    "warp-contracts": "^1.1.14"
   }
 }
