@@ -3,7 +3,8 @@ import * as assert from 'uvu/assert'
 import fs from 'fs'
 import ArLocal from 'arlocal'
 import Arweave from 'arweave'
-import { WarpNodeFactory, LoggerFactory } from 'warp-contracts'
+import pkg from 'warp-contracts'
+const { WarpNodeFactory, LoggerFactory } = pkg;
 
 const arweave = Arweave.init({
   host: 'localhost',
@@ -23,8 +24,8 @@ const initState = JSON.stringify({
 
 
 test('hello', async () => {
-  //const arlocal = new ArLocal.default()
-  //await arlocal.start()
+  const arlocal = new ArLocal.default()
+  await arlocal.start()
 
   await arweave.api.get(`mint/${addr}/${arweave.ar.arToWinston('1000')}`)
   await arweave.api.get('mine')
@@ -36,12 +37,11 @@ test('hello', async () => {
     src,
     wallet
   })
-  console.log(result)
   const contract = warp.contract(result.contractTxId).connect(wallet)
   const result2 = await contract.viewState({
     function: 'verify'
   })
-  console.log('result', result2.result)
+  // console.log('result', result2.result)
   //const id = await contract
   //   .writeInteraction({
   //     function: 'hello',
@@ -56,7 +56,7 @@ test('hello', async () => {
   assert.equal(true, true)
   //assert.equal(state.greeting, 'Phil')
 
-  //await arlocal.stop()
+  await arlocal.stop()
 })
 
 test.run()
