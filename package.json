@@ -1,5 +1,5 @@
 {
-  "name": "@twilson63/vouch-verified",
+  "name": "vouch-verified",
   "version": "0.0.2",
   "type": "module",
   "main": "verified.js",
